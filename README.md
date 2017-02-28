@@ -7,6 +7,8 @@ For this assignment, you will need to create two proxies. One will be used for t
 If invalid credentials are sent in, the flow should stop and a useful error should be returned to the user. If the correct credentials are sent in, the proxy should make a callout to Github and return information for a given user. The user will be passed in as a query parameter or header, your choice. This request can be done through Apigee’s policies/flows or through a Node.js server, similar to the one in assignment two.
 
 Requirements
+
+
 • Create two proxies on Apigee, one to accept the request that is routed to Github and another to create and revoke OAuth licenses.
 – The primary proxy should only accept GET requests.
 – The proxy should have two different URNs that only accept a given authorization credential.
