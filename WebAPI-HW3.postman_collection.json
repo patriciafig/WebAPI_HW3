@@ -1,0 +1,121 @@
+{
+  "id": "10140a70-a5cb-gac3-2304-6a0ae5676ba0",
+  "name": "Web API HW3",
+  "description": "OAuth request to get an access token to be used to make a call to Github",
+  "order": [
+    "50a80e70-0e49-ebd2-1b7d-5fa3ee7d2ca4",
+    "0252014e-fb74-e081-be75-0dd2112da463",
+    "8f626b9f-d0a2-042f-50df-24c37e8ef1d5",
+    "db0c073f-d767-12f4-1af7-10c8509b933a"
+  ],
+  "folders": [],
+  "timestamp": 1498909860375,
+  "owner": "2451355",
+  "public": false,
+  "requests": [
+    {
+      "id": "0252014e-fb74-e081-be75-0dd2112da463",
+      "headers": "Authorization: Bearer {{access_token}}\n",
+      "url": "http://figueroap-test.apigee.net/HW3/github",
+      "pathVariables": {},
+      "preRequestScript": null,
+      "method": "GET",
+      "collectionId": "10140a70-a5cb-gac3-2304-6a0ae5676ba0",
+      "data": null,
+      "dataMode": "params",
+      "name": "Successful - Github Request ",
+      "description": "Successful Request",
+      "descriptionFormat": "HTML",
+      "time": 1409102700574,
+      "version": 2,
+      "responses": [],
+      "tests": null,
+      "currentHelper": "normal",
+      "helperAttributes": {}
+    },
+    {
+      "id": "7f526b7e-c0a1-032f-40df64c25d8df1d4",
+      "headers": "Content-Type: application/x-www-form-urlencoded\n",
+      "url": "https://figueroap-test.apigee.net/oauth/client_credential/accesstoken?grant_type=client_credentials",
+      "pathVariables": {},
+      "preRequestScript": null,
+      "method": "POST",
+      "collectionId": "10140a70-a5cb-gac3-2304-6a0ae5676ba0",
+      "data": [
+        {
+          "key": "client_id",
+          "value": "YCfnifxBoikE1EWj5uQ6tjs5TagHJm0K ",
+          "type": "text",
+          "enabled": true
+        },
+        {
+          "key": "client_secret",
+          "value": "ryycelA4l5",
+          "type": "text",
+          "enabled": true
+        }
+      ],
+      "dataMode": "urlencoded",
+      "name": "Access Tokens",
+      "description": "Getting Access Token with incorrect Creds. ",
+      "descriptionFormat": "html",
+      "time": 1489133941491,
+      "version": 2,
+      "responses": [],
+      "tests": "tests[\"Status code is 200\"] = responseCode.code === 200;\nvar json = JSON.parse(responseBody);\npostman.setEnvironmentVariable(\"access_token\", json.access_token);",
+      "currentHelper": "normal",
+      "helperAttributes": {}
+    },
+    {
+      "id": "50a80e70-0e49-ebd2-1b7d-5fa3ee7d2ca4",
+      "headers": "Content-Type: application/x-www-form-urlencoded\n",
+      "url": "https://figueroap-test.apigee.net/oauth/client_credential/accesstoken?grant_type=client_credentials",
+      "preRequestScript": null,
+      "pathVariables": {},
+      "method": "POST",
+      "data": [
+        {
+          "key": "client_id",
+          "value": "YCfnifxBoikE1EWj5uQ6tjs5TagHJm0K ",
+          "type": "text",
+          "enabled": true
+        },
+        {
+          "key": "client_secret",
+          "value": "yrcyeAl4l5GwEGAs",
+          "type": "text",
+          "enabled": true
+        }
+      ],
+      "dataMode": "urlencoded",
+      "tests": "tests[\"Status code is 200\"] = responseCode.code === 200;\nvar json = JSON.parse(responseBody);\npostman.setEnvironmentVariable(\"access_token\", json.access_token);",
+      "currentHelper": "normal",
+      "helperAttributes": {},
+      "time": 1480102924368,
+      "name": "Access Token",
+      "description": "Getting Access Token with Correct Creds. ",
+      "collectionId": "10140a70-a5cb-gac3-2304-6a0ae5676ba0",
+      "responses": []
+    },
+    {
+      "id": "db0c073f-d767-12f4-1af7-10c8509b933a",
+      "headers": "Authorization: Bearer {{access_toke}}\n",
+      "url": "http://figueroap-test.apigee.net/HW3/github",
+      "pathVariables": {},
+      "preRequestScript": null,
+      "method": "GET",
+      "collectionId": "10140a70-a5cb-gac3-2304-6a0ae5676ba0",
+      "data": null,
+      "dataMode": "params",
+      "name": "Unsuccessful Github Request",
+      "description": "Unsuccessful",
+      "descriptionFormat": "HTML",
+      "time": 1499102667299,
+      "version": 2,
+      "responses": [],
+      "tests": null,
+      "currentHelper": "normal",
+      "helperAttributes": {}
+    }
+  ]
+}
