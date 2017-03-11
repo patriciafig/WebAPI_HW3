@@ -1,0 +1,23 @@
+{
+  "name": "OAuth",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Web API HW3",
+  "keywords": [],
+  "author": "",
+  "license": "",
+  "main": "app.js",
+  "dependencies": {
+    "express": "^4.14.1",
+    "swagger-express-mw": "^0.1.0",
+    "request": ""
+  },
+  "devDependencies": {
+    "should": "^2.1.0",
+    "supertest": "^1.0.0"
+  },
+  "scripts": {
+    "start": "node app.js",
+    "test": "swagger project test"
+  }
+}
