@@ -1,0 +1,5 @@
+module.exports = {
+    "mainkey": {
+        "data": "6be4206a78a8dd14fe7345b878984bb50dec5f5f6522dd6292014db5cd03ded40a4cfb191ba064c3765dfbe1234c3019"
+    }
+};
