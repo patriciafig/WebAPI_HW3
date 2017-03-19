@@ -1,0 +1,7 @@
+Why sometimes OAuth should be revoked despite valid credentials:
+OAth is revoked despite valid credentials because 
+there are instances when it can be a threat to give OAuth permission a to a user. 
+For example, IP addresses that the user has visited could be 
+is blacklisted, or there can be other indications about the user's information that causes a 
+sort of self defense mechananism. 
+
