@@ -15,7 +15,7 @@ app.get('/', function (req, res) {
         version: "3.0.0"
     });
 
-    var token =  "THE TOKEN WOULD GO HERE"; //don't store on github
+    var token =  "The location of the token is "; //don't store on github
     github.authenticate({
         type: "oauth",
         token: token
@@ -24,7 +24,7 @@ app.get('/', function (req, res) {
     //Uses github module to throw an error or return my username 
     github.user.get({ user: 'patriciafig'} , function(err, res) {
         console.log("Error Thrown", err);
-        console.log("All good.", res);
+        console.log("Good Response.", res);
         res.send(res);
     });
 })
