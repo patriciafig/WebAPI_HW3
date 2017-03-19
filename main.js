@@ -4,27 +4,34 @@
 
 
 //import required directive to load http module and store the returned HTTP instance into an http variable
-var http = require("http");
-fs= require ('fs');   //gets file system modules
-// creates a server using http module
-http.createServer(function (request, response) {
-    //Sends the HTTP header
-    //HTP status: 200 :OK
-    //Content Type: plain text
-    //sets the configuration for the response
-    response.writeHead (200, {
-        'Content-Type': 'text/html' ,
-        'Access-Control-Allow-Origin' : '*'
+var app = express();
+var localPort = 9000;
+// A Call to the Base route for github
+app.get('/', function (req, res) {
+    console.log("Ping to Home");
+    //GET to the base url 
+    var GithubAPI = require("github");  
+    var github = new GithubAPI({
+        version: "3.0.0"
     });
 
-    //takes index.html file using fs
-    var readStream = fs.createReadStream(__dirname + '/index.html');
+    var token =  "THE TOKEN WOULD GO HERE"; //don't store on github
+    github.authenticate({
+        type: "oauth",
+        token: token
+    });
 
-    // sends file to the user
-    readStream.pipe(response);
-//Sends the response body 'Hello World'
-// response.end ('Hello World\n');
+    //Uses github module to throw an error or return my username 
+    github.user.get({ user: 'patriciafig'} , function(err, res) {
+        console.log("Error Thrown", err);
+        console.log("All good.", res);
+        res.send(res);
+    });
+})
 
-}) .listen(8081);
-//Console print
-console. log ('Server running at http://127.0.0.1:8081/');
+//for server communication
+var server = app.listen(localPort, function () {
+    var host = server.address().address
+    var port = server.address().port
+    console.log("We are on: ", host, port)
+}) 
