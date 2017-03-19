@@ -6,7 +6,7 @@
 //import required directive to load http module and store the returned HTTP instance into an http variable
 var app = express();
 var localPort = 9000;
-// A Call to the Base route for github
+// a call to the Base route for github
 app.get('/', function (req, res) {
     console.log("Ping to Home");
     //GET to the base url 
