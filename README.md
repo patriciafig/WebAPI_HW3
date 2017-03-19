@@ -8,7 +8,6 @@ If invalid credentials are sent in, the flow should stop and a useful error shou
 
 Requirements
 
-
 • Create two proxies on Apigee, one to accept the request that is routed to Github and another to create and revoke OAuth licenses.
 – The primary proxy should only accept GET requests.
 – The proxy should have two different URNs that only accept a given authorization credential.
@@ -18,3 +17,7 @@ The response from Github doesn’t need to be manipulated in any way, just pass 
 • If the user sends in an invalid authorization, return a helpful error message. Avoid using the default error response from Apigee.
 • Include a small Postman project that can shows all the requirements have been met.– This project should include valid requests, as well as requests that fail (sending an invalid
 Basic Authorization header, etc.).
+
+# Why sometimes OAuth should be revoked despite valid credentials?
+OAth is revoked despite valid credentials mainly because of security reasons. There are cases when it can be a threat to give OAuth permission a to a user. For example, if a user has visited IP addresses that can be blacklisted, or there can be other indications about the user's information that causes a sort of self defense mechananism where Oauth is only protecting itself. 
+
